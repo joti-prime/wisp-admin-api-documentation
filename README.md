@@ -122,7 +122,67 @@ This documentation details the ApiKeysService API endpoints, which are used for 
 
 
 
+# DatabaseHostsService API Documentation
 
+## Overview
+This documentation describes the DatabaseHostsService API endpoints, used for managing database hosts in the application.
+
+## API Endpoints
+
+### 1. Get All Database Hosts
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/database-hosts`
+- **Method**: GET
+- **Description**: Retrieve all database hosts.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/database-hosts"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Get Specific Database Host
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/database-hosts/:databaseHost`
+- **Method**: GET
+- **Description**: Retrieve a specific database host.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/database-hosts/:databaseHost"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 3. Create Database Host
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/database-hosts`
+- **Method**: POST
+- **Description**: Create a new database host.
+- **Required Parameters**:
+  - `name`: Name of the database host.
+  - `host`: Host address.
+  - `port`: Port number.
+  - `username`: Username for the database host.
+  - `password`: Password for the database host.
+  - `phpmyadmin_url`: URL to phpMyAdmin for the host.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/database-hosts"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "name": "MyDBHost", "host": "db.example.com", "port": 3306, "username": "admin", "password": "password", "phpmyadmin_url": "http://phpmyadmin.example.com" }'
+  ```
+
+### 4. Update Database Host
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/database-hosts/:databaseHost`
+- **Method**: PUT
+- **Description**: Update an existing database host.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/database-hosts/:databaseHost"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "UpdatedDBHost", "host": "db-updated.example.com", "port": 3307, "username": "admin_updated", "password": "password_updated", "phpmyadmin_url": "http://phpmyadmin-updated.example.com" }'
+  ```
+
+### 5. Delete Database Host
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/database-hosts/:id`
+- **Method**: DELETE
+- **Description**: Delete an existing database host.
+- **Required Parameters**:
+  - `id`: Identifier of the database host to delete.
+  - `force`: Boolean indicating whether to force delete.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/database-hosts/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE     -d '{ "force": true }'
+  ```
 
 
 
