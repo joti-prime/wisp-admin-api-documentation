@@ -186,6 +186,62 @@ This documentation describes the DatabaseHostsService API endpoints, used for ma
 
 
 
+# DomainsService API Documentation
+
+## Overview
+This documentation provides details about the DomainsService API endpoints, which are used for managing domains in the application.
+
+## API Endpoints
+
+### 1. Get All Domains
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/domains`
+- **Method**: GET
+- **Description**: Retrieve all domains.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/domains"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Get Specific Domain
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/domains/:domain`
+- **Method**: GET
+- **Description**: Retrieve a specific domain.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/domains/:domain"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 3. Create Domain
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/domains`
+- **Method**: POST
+- **Description**: Create a new domain.
+- **Required Parameters**:
+  - `name`: Name of the domain.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/domains"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "name": "example.com" }'
+  ```
+
+### 4. Update Domain
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/domains/:domain`
+- **Method**: PUT
+- **Description**: Update an existing domain.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/domains/:domain"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "updated-example.com" }'
+  ```
+
+### 5. Delete Domain
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/domains/:id`
+- **Method**: DELETE
+- **Description**: Delete an existing domain.
+- **Required Parameters**:
+  - `id`: Identifier of the domain to delete.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/domains/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
+
 
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
