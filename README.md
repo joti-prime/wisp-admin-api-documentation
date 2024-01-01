@@ -11,7 +11,7 @@ This documentation covers the AnnouncementsService API endpoints for the admin p
 - **Method**: GET
 - **Description**: Retrieve all announcements.
 - **Example Request**:
-  ```bash
+  ```
   curl "https://{your.panel.com}/api/admin/announcements"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
   ```
 
@@ -25,7 +25,7 @@ This documentation covers the AnnouncementsService API endpoints for the admin p
   - `active`: Boolean indicating if the announcement is active.
   - `displayAtTop`: Boolean indicating if the announcement should be displayed at the top.
 - **Example Request**:
-  ```bash
+  ```
   curl "https://{your.panel.com}/api/admin/announcements"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "type": "info", "text": "Server maintenance scheduled", "active": true, "displayAtTop": false }'
   ```
 
@@ -37,7 +37,7 @@ This documentation covers the AnnouncementsService API endpoints for the admin p
   - `id`: Identifier of the announcement.
   - Other parameters as in `CreateAnnouncementRequest`.
 - **Example Request**:
-  ```bash
+  ```
   curl "https://{your.panel.com}/api/admin/announcements/123"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PATCH     -d '{ "type": "warning", "text": "Maintenance extended", "active": true, "displayAtTop": true, "id": 123 }'
   ```
 
@@ -48,7 +48,7 @@ This documentation covers the AnnouncementsService API endpoints for the admin p
 - **Required Parameters**:
   - `id`: Identifier of the announcement to resend.
 - **Example Request**:
-  ```bash
+  ```
   curl "https://{your.panel.com}/api/admin/announcements/123/resend"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST
   ```
 
@@ -59,7 +59,7 @@ This documentation covers the AnnouncementsService API endpoints for the admin p
 - **Required Parameters**:
   - `id`: Identifier of the announcement to delete.
 - **Example Request**:
-  ```bash
+  ```
   curl "https://{your.panel.com}/api/admin/announcements/123"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
   ```
 
