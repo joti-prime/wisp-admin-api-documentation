@@ -10,6 +10,10 @@ This documentation covers the AnnouncementsService API endpoints for the admin p
 - **Endpoint**: `GET https://{your.panel.com}/api/admin/announcements`
 - **Method**: GET
 - **Description**: Retrieve all announcements.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/announcements"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
 
 ### 2. Create an Announcement
 - **Endpoint**: `POST https://{your.panel.com}/api/admin/announcements`
@@ -20,6 +24,10 @@ This documentation covers the AnnouncementsService API endpoints for the admin p
   - `text`: Text content of the announcement.
   - `active`: Boolean indicating if the announcement is active.
   - `displayAtTop`: Boolean indicating if the announcement should be displayed at the top.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/announcements"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "type": "info", "text": "Server maintenance scheduled", "active": true, "displayAtTop": false }'
+  ```
 
 ### 3. Update an Announcement
 - **Endpoint**: `PATCH https://{your.panel.com}/api/admin/announcements/<ID>`
@@ -28,6 +36,10 @@ This documentation covers the AnnouncementsService API endpoints for the admin p
 - **Required Parameters**:
   - `id`: Identifier of the announcement.
   - Other parameters as in `CreateAnnouncementRequest`.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/announcements/123"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PATCH     -d '{ "type": "warning", "text": "Maintenance extended", "active": true, "displayAtTop": true, "id": 123 }'
+  ```
 
 ### 4. Resend an Announcement
 - **Endpoint**: `POST https://{your.panel.com}/api/admin/announcements/<ID>/resend`
@@ -35,6 +47,10 @@ This documentation covers the AnnouncementsService API endpoints for the admin p
 - **Description**: Resend an existing announcement.
 - **Required Parameters**:
   - `id`: Identifier of the announcement to resend.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/announcements/123/resend"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST
+  ```
 
 ### 5. Delete an Announcement
 - **Endpoint**: `DELETE https://{your.panel.com}/api/admin/announcements/<ID>`
@@ -42,6 +58,10 @@ This documentation covers the AnnouncementsService API endpoints for the admin p
 - **Description**: Delete an existing announcement.
 - **Required Parameters**:
   - `id`: Identifier of the announcement to delete.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/announcements/123"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
 
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
