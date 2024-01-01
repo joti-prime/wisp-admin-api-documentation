@@ -63,15 +63,73 @@ This documentation covers the AnnouncementsService API endpoints for the admin p
   curl "https://{your.panel.com}/api/admin/announcements/123"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
   ```
 
+
+
+# ApiKeysService API Documentation
+
+## Overview
+This documentation details the ApiKeysService API endpoints, which are used for managing API keys in the application.
+
+## API Endpoints
+
+### 1. Get All API Keys
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/application-api`
+- **Method**: GET
+- **Description**: Retrieve all API keys.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/application-api"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Get Specific API Key
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/application-api/:apiKey`
+- **Method**: GET
+- **Description**: Retrieve a specific API key.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/application-api/:apiKey"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 3. Create API Key
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/application-api`
+- **Method**: POST
+- **Description**: Create a new API key.
+- **Required Parameters**:
+  - `[key: ResourceString]`: Resource string for the API key.
+  - `memo`: A memo for the API key.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/application-api"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "r_exampleResource": 1, "memo": "My new API key" }'
+  ```
+
+### 4. Update API Key
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/application-api/:apiKey`
+- **Method**: PUT
+- **Description**: Update an existing API key.
+- **Note**: Endpoint pending finalization.
+- **Example Request**: TBD
+
+### 5. Delete API Key
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/application-api/:id`
+- **Method**: DELETE
+- **Description**: Delete an existing API key.
+- **Required Parameters**:
+  - `id`: Identifier of the API key to delete.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/application-api/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
+
+
+
+
+
+
+
+
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
-- Replace `<ID>` with the specific announcement's identifier where applicable.
+- Replace `:apiKey` and `:id` with the specific API key's identifier where applicable.
 - Ensure proper authentication by including a valid API token in the `Authorization` header.
 - The `Content-Type` header should be set as shown in the examples for proper request handling.
 
-
-
-curl "https://{your.panel.com}/api/admin/announcements/123" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer ADMINAPITOKEN" \
-  -X DELETE
