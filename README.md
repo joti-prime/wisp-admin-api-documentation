@@ -1034,6 +1034,74 @@ This documentation outlines the ServersService API endpoints, used for managing 
 
 
 
+
+# SettingsService API Documentation
+
+## Overview
+This documentation outlines the SettingsService API endpoints, used for managing various settings in the application.
+
+## API Endpoints
+
+### General Settings Update
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/settings/general`
+- **Method**: POST
+- **Description**: Update general settings of the application.
+- **Required Parameters**:
+  - `branding.name`: Branding name.
+  - `misc.databases_allow_random`: Boolean for database random allowance.
+  - `misc.required_2fa`: Required 2FA level.
+  - `default_locale`: Default locale setting.
+- **Example Request**: TBD
+
+### Embed Settings Update
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/settings/embed`
+- **Method**: POST
+- **Description**: Update embed settings of the application.
+- **Required Parameters**:
+  - `og.site_name`: Site name for embedding.
+  - `og.title`: Embed title.
+  - `og.description`: Embed description.
+  - `og.color`: Embed color.
+  - `og.image`: Embed image URL.
+- **Example Request**: TBD
+
+### JS Settings Update
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/settings/js`
+- **Method**: POST
+- **Description**: Update JavaScript settings.
+- **Required Parameters**:
+  - `js`: JavaScript content or script.
+- **Example Request**: TBD
+
+### CSS Settings Update
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/settings/css`
+- **Method**: POST
+- **Description**: Update CSS settings.
+- **Required Parameters**:
+  - `css`: CSS content.
+- **Example Request**: TBD
+
+### SSO Settings Update
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/settings/sso`
+- **Method**: POST
+- **Description**: Update Single Sign-On settings.
+- **Required Parameters**:
+  - `whmcs.enabled`: Boolean for WHMCS SSO enable.
+  - `whmcs.button_text`: Button text for WHMCS SSO.
+  - Other WHMCS related settings.
+- **Example Request**: TBD
+
+### Asset Uploads
+- **Endpoints**:
+  - `/settings/branding/login_logo`
+  - `/settings/branding/favicon`
+  - `/settings/branding/logo`
+- **Method**: POST
+- **Description**: Upload various branding assets like logos and favicon.
+- **Required Parameters**:
+  - `asset`: File to be uploaded.
+- **Example Request**: TBD
+
   
   
 ## Additional Notes
