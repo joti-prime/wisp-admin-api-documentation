@@ -619,6 +619,81 @@ This documentation outlines the NestsService API endpoints, used for managing ne
   curl "https://{your.panel.com}/api/admin/nests/:nest"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
   ```
 
+
+  
+# NodeAllocationsService API Documentation
+
+## Overview
+This documentation provides details about the NodeAllocationsService API endpoints, used for managing node allocations in the application.
+
+## API Endpoints
+
+### 1. Get All Node Allocations
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/nodes/:node/allocations`
+- **Method**: GET
+- **Description**: Retrieve all allocations for a specific node.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nodes/:node/allocations"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Get All Allocations for Selector
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/nodes/:node/allocations/selector`
+- **Method**: GET
+- **Description**: Retrieve allocations for a specific node based on certain criteria.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nodes/:node/allocations/selector?filter[ip_port]=IP_PORT&filter[in_use]=true"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 3. Create Allocation
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/nodes/:node/allocations`
+- **Method**: POST
+- **Description**: Create new allocations for a node.
+- **Required Parameters**:
+  - `ip`: Array of IPs.
+  - `ports`: Array of ports.
+  - `alias`: (Optional) Alias for the allocation.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nodes/:node/allocations"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "ip": ["192.168.0.1"], "ports": ["25565", "25566"], "alias": "MyServer" }'
+  ```
+
+### 4. Update Allocation
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/nodes/:node/allocations/:id`
+- **Method**: PUT
+- **Description**: Update an existing allocation.
+- **Required Parameters**:
+  - `id`: Identifier of the allocation to update.
+  - `alias`: New alias for the allocation.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nodes/:node/allocations/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "alias": "UpdatedServer" }'
+  ```
+
+### 5. Mass Delete Allocations
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/nodes/:node/allocations`
+- **Method**: DELETE
+- **Description**: Mass delete allocations based on a set of identifiers or IPs.
+- **Required Parameters**:
+  - `allocations`: Array of allocation identifiers.
+  - `ips`: Array of IP addresses.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nodes/:node/allocations"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE     -d '{ "allocations": [123, 124], "ips": ["192.168.0.1"] }'
+  ```
+
+### 6. Delete Allocation
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/nodes/:node/allocations/:id`
+- **Method**: DELETE
+- **Description**: Delete a specific allocation.
+- **Required Parameters**:
+  - `id`: Identifier of the allocation to delete.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nodes/:node/allocations/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
+
   
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
