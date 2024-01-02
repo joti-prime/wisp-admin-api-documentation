@@ -243,6 +243,64 @@ This documentation provides details about the DomainsService API endpoints, whic
   ```
 
 
+
+# EggVariablesService API Documentation
+
+## Overview
+This documentation provides details about the EggVariablesService API endpoints, which are used for managing egg variables in the application.
+
+## API Endpoints
+
+### 1. Get All Egg Variables
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables`
+- **Method**: GET
+- **Description**: Retrieve all variables for a specific egg.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Create Egg Variable
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables`
+- **Method**: POST
+- **Description**: Create a new variable for a specific egg.
+- **Required Parameters**:
+  - `name`: Name of the variable.
+  - `description`: Description of the variable.
+  - `env_variable`: Environment variable name.
+  - `default_value`: Default value of the variable.
+  - `user_viewable`: Boolean indicating if the variable is viewable by the user.
+  - `user_editable`: Boolean indicating if the variable is editable by the user.
+  - `tickable`: Boolean indicating if the variable is tickable.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "name": "var_name", "description": "Variable description", "env_variable": "VAR_NAME", "default_value": "default", "user_viewable": true, "user_editable": true, "tickable": true }'
+  ```
+
+### 3. Update Egg Variable
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables/:id`
+- **Method**: PUT
+- **Description**: Update an existing variable for a specific egg.
+- **Required Parameters**:
+  - All parameters as in `CreateVariableRequest`.
+  - `id`: Identifier of the variable to update.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "updated_var_name", "description": "Updated description", "env_variable": "UPDATED_VAR", "default_value": "updated_default", "user_viewable": false, "user_editable": false, "tickable": false, "id": 123 }'
+  ```
+
+### 4. Delete Egg Variable
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables/:id`
+- **Method**: DELETE
+- **Description**: Delete an existing variable for a specific egg.
+- **Required Parameters**:
+  - `id`: Identifier of the variable to delete.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
+
+
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
 - Replace `:apiKey` and `:id` with the specific API key's identifier where applicable.
