@@ -494,6 +494,71 @@ This documentation provides details about the MigratorService API endpoints, whi
   ```bash
   curl "https://{your.panel.com}/api/admin/migrator/:id/notify"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST
   ```
+
+  
+# ModsService API Documentation
+
+## Overview
+This documentation outlines the ModsService API endpoints, which are used for managing mods in the application.
+
+## API Endpoints
+
+### 1. Get All Mods
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/mods`
+- **Method**: GET
+- **Description**: Retrieve all mods.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/mods"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Get Specific Mod
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/mods/:mod`
+- **Method**: GET
+- **Description**: Retrieve a specific mod.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/mods/:mod"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 3. Create Mod
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/mods`
+- **Method**: POST
+- **Description**: Create a new mod.
+- **Required Parameters**:
+  - `name`: Name of the mod.
+  - `description`: Description of the mod.
+  - `version`: Version of the mod.
+  - `category`: Category of the mod.
+  - `scriptInstall`: Install script for the mod.
+  - `scriptUninstall`: Uninstall script for the mod.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/mods"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "name": "Mod Name", "description": "Description of mod", "version": "1.0", "category": "Category", "scriptInstall": "install.sh", "scriptUninstall": "uninstall.sh" }'
+  ```
+
+### 4. Update Mod
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/mods/:mod`
+- **Method**: PUT
+- **Description**: Update an existing mod.
+- **Required Parameters**:
+  - Same as in `CreateModRequest`.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/mods/:mod"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "Updated Mod", "description": "Updated description", "version": "1.1", "category": "Updated Category", "scriptInstall": "updated_install.sh", "scriptUninstall": "updated_uninstall.sh" }'
+  ```
+
+### 5. Delete Mod
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/mods/:id`
+- **Method**: DELETE
+- **Description**: Delete an existing mod.
+- **Required Parameters**:
+  - `id`: Identifier of the mod to delete.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/mods/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
+
   
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
