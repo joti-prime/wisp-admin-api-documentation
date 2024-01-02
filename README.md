@@ -779,6 +779,36 @@ This documentation outlines the OverviewService API endpoint, which is used for 
   ```bash
   curl "https://{your.panel.com}/api/admin/license"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
   ```
+
+
+
+
+  # ServerBackupService API Documentation
+
+## Overview
+This documentation outlines the ServerBackupService API endpoints, used for managing server backups in the application.
+
+## API Endpoints
+
+### 1. Get All Server Backups
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/servers/:server/backups`
+- **Method**: GET
+- **Description**: Retrieve all backups for a specific server.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers/:server/backups"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Toggle Server Backup
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/servers/:server/backups/:id/toggle`
+- **Method**: POST
+- **Description**: Toggle the backup state for a specific backup of a server.
+- **Required Parameters**:
+  - `id`: Identifier of the backup to toggle.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers/:server/backups/:id/toggle"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "id": 123 }'
+  ```
   
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
