@@ -57,7 +57,10 @@ This documentation covers the AnnouncementsService API endpoints for the admin p
 - **Description**: Update an existing announcement.
 - **Required Parameters**:
   - `id`: Identifier of the announcement.
-  - Other parameters as in `CreateAnnouncementRequest`.
+  - `type`: Type of the announcement.
+  - `text`: Text content of the announcement.
+  - `active`: Boolean indicating if the announcement is active.
+  - `displayAtTop`: Boolean indicating if the announcement should be displayed at the top.
 - **Example Request**:
   ```bash
   curl "https://{your.panel.com}/api/admin/announcements/123"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PATCH     -d '{ "type": "warning", "text": "Maintenance extended", "active": true, "displayAtTop": true, "id": 123 }'
@@ -1128,10 +1131,25 @@ This documentation outlines the SettingsService API endpoints, used for managing
 - **Method**: POST
 - **Description**: Update Single Sign-On settings.
 - **Required Parameters**:
-  - `whmcs.enabled`: Boolean for WHMCS SSO enable.
-  - `whmcs.button_text`: Button text for WHMCS SSO.
-  - Other WHMCS related settings.
-- **Example Request**: TBD
+  - `whmcs.enabled`: Boolean indicating whether WHMCS SSO is enabled.
+  - `whmcs.button_text`: Text displayed on the SSO button for WHMCS.
+  - `whmcs.url`: URL of the WHMCS installation.
+  - `whmcs.client_id`: Client ID for WHMCS integration.
+  - `whmcs.client_secret`: Client secret for WHMCS integration.
+  - `whmcs.api_id`: API ID for WHMCS integration.
+  - `whmcs.api_secret`: API secret for WHMCS integration.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/settings/sso"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{
+          "whmcs.enabled": true,
+          "whmcs.button_text": "Login with WHMCS",
+          "whmcs.url": "https://whmcs.example.com",
+          "whmcs.client_id": "your_client_id",
+          "whmcs.client_secret": "your_client_secret",
+          "whmcs.api_id": "your_api_id",
+          "whmcs.api_secret": "your_api_secret"
+        }'
+  ```
 
 ### Asset Uploads
 - **Endpoints**:
