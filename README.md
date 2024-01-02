@@ -394,6 +394,67 @@ This documentation details the EggsService API endpoints, which are used for man
   ```
 
 
+  
+# LocationsService API Documentation
+
+## Overview
+This documentation covers the LocationsService API endpoints, which are used for managing locations in the application.
+
+## API Endpoints
+
+### 1. Get All Locations
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/locations`
+- **Method**: GET
+- **Description**: Retrieve all locations.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/locations"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Get Specific Location
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/locations/:location`
+- **Method**: GET
+- **Description**: Retrieve a specific location.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/locations/:location"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 3. Create Location
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/locations`
+- **Method**: POST
+- **Description**: Create a new location.
+- **Required Parameters**:
+  - `short`: Short code for the location.
+  - `long`: Full name or description of the location.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/locations"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "short": "US-EAST", "long": "East Coast, USA" }'
+  ```
+
+### 4. Update Location
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/locations/:location`
+- **Method**: PUT
+- **Description**: Update an existing location.
+- **Required Parameters**:
+  - Same as in `CreateLocationRequest`.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/locations/:location"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "short": "US-WEST", "long": "West Coast, USA" }'
+  ```
+
+### 5. Delete Location
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/locations/:id`
+- **Method**: DELETE
+- **Description**: Delete an existing location.
+- **Required Parameters**:
+  - `id`: Identifier of the location to delete.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/locations/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
+
+
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
 - Replace `:apiKey` and `:id` with the specific API key's identifier where applicable.
