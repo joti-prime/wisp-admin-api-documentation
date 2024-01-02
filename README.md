@@ -351,16 +351,34 @@ This documentation details the EggsService API endpoints, which are used for man
 ### 3. Create Egg
 - **Endpoint**: `POST https://{your.panel.com}/api/admin/nests/:nest/eggs`
 - **Method**: POST
-- **Description**: Create a new egg.
+- **Description**: Create a new egg within a specific nest.
 - **Required Parameters**:
   - `name`: Name of the egg.
   - `tag`: Tag for the egg.
-  - `description`: Description of the egg.
-  - `docker_image`: Docker image for the egg.
-  - Other configuration parameters as needed.
+  - `description`: Description of what the egg is for.
+  - `docker_image`: Docker image to be used for this egg.
+  - `startup`: Startup command for the egg.
+  - `config_from`: The configuration from which this egg is derived.
+  - `config_logs`: Configuration for logs.
+  - `config_files`: Configuration for files.
+  - `config_startup`: Configuration for the startup process.
+  - `config_stop`: Configuration for the stop process.
+  - `custom_config`: Any custom configuration required for the egg.
 - **Example Request**:
   ```bash
-  curl "https://{your.panel.com}/api/admin/nests/:nest/eggs"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "name": "My Egg", "tag": "myegg", "description": "An example egg", "docker_image": "example/image" }'
+  curl "https://{your.panel.com}/api/admin/nests/:nest/eggs"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{
+          "name": "Minecraft Egg",
+          "tag": "minecraft",
+          "description": "Egg for running a Minecraft server",
+          "docker_image": "minecraft/image:latest",
+          "startup": "java -Xms512M -Xmx1024M -jar server.jar",
+          "config_from": 1,
+          "config_logs": "/var/logs",
+          "config_files": "/var/data",
+          "config_startup": "/start.sh",
+          "config_stop": "stop",
+          "custom_config": "{"custom": true}"
+        }'
   ```
 
 ### 4. Import Egg
