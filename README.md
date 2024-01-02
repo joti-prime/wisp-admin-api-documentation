@@ -1,7 +1,7 @@
 # Index:
 
-export { default as AnnouncementsService } from './announcements';
-export { default as ApiKeysService } from './apiKeys';
+- export { default as AnnouncementsService } from './announcements';
+- export { default as ApiKeysService } from './apiKeys';
 export { default as DatabaseHostsService } from './databaseHosts';
 export { default as LocationsService } from './locations';
 export { default as MigratorService } from './migrator';
