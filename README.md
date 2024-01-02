@@ -300,6 +300,77 @@ This documentation provides details about the EggVariablesService API endpoints,
   curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
   ```
 
+  
+# EggsService API Documentation
+
+## Overview
+This documentation details the EggsService API endpoints, which are used for managing eggs in the application.
+
+## API Endpoints
+
+### 1. Get All Eggs
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/nests/:nest/eggs`
+- **Method**: GET
+- **Description**: Retrieve all eggs for a specific nest.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/nests/:nest/eggs"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Get Specific Egg
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg`
+- **Method**: GET
+- **Description**: Retrieve a specific egg.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 3. Create Egg
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/nests/:nest/eggs`
+- **Method**: POST
+- **Description**: Create a new egg.
+- **Required Parameters**:
+  - `name`: Name of the egg.
+  - `tag`: Tag for the egg.
+  - `description`: Description of the egg.
+  - `docker_image`: Docker image for the egg.
+  - Other configuration parameters as needed.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/nests/:nest/eggs"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "name": "My Egg", "tag": "myegg", "description": "An example egg", "docker_image": "example/image" }'
+  ```
+
+### 4. Import Egg
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/nests/:nest_id/eggs/import`
+- **Method**: POST
+- **Description**: Import an egg from a file.
+- **Note**: This endpoint requires `multipart/form-data` content type.
+- **Example Request**:
+  ```
+  # Use appropriate tool or library to handle multipart/form-data for file upload.
+  ```
+
+### 5. Update Egg
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg`
+- **Method**: PUT
+- **Description**: Update an existing egg.
+- **Required Parameters**:
+  - Same as in `CreateEggRequest`.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "Updated Egg", "tag": "updatedegg", "description": "Updated description", "docker_image": "updated/image" }'
+  ```
+
+### 6. Delete Egg
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg`
+- **Method**: DELETE
+- **Description**: Delete an existing egg.
+- **Example Request**:
+  ```
+  curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
+
 
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
