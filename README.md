@@ -761,6 +761,24 @@ This documentation outlines the NodeService API endpoints, used for managing nod
   ```bash
   curl "https://{your.panel.com}/api/admin/nodes/daemon-info"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
   ```
+
+
+  
+# OverviewService API Documentation
+
+## Overview
+This documentation outlines the OverviewService API endpoint, which is used for retrieving license information in the application.
+
+## API Endpoint
+
+### Get License Information
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/license`
+- **Method**: GET
+- **Description**: Retrieve the license information.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/license"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
   
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
