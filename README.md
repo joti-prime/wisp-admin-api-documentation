@@ -108,7 +108,7 @@ This documentation details the ApiKeysService API endpoints, which are used for 
 - **Method**: GET
 - **Description**: Retrieve a specific API key.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/application-api/:apiKey"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
   ```
 
