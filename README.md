@@ -559,6 +559,66 @@ This documentation outlines the ModsService API endpoints, which are used for ma
   curl "https://{your.panel.com}/api/admin/mods/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
   ```
 
+
+
+# NestsService API Documentation
+
+## Overview
+This documentation outlines the NestsService API endpoints, used for managing nests in the application.
+
+## API Endpoints
+
+### 1. Get All Nests
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/nests`
+- **Method**: GET
+- **Description**: Retrieve all nests.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nests"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Get Specific Nest
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/nests/:nest`
+- **Method**: GET
+- **Description**: Retrieve a specific nest.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nests/:nest"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 3. Create Nest
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/nests`
+- **Method**: POST
+- **Description**: Create a new nest.
+- **Required Parameters**:
+  - `name`: Name of the nest.
+  - `identifier`: Identifier for the nest.
+  - `description`: Description of the nest.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nests"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "name": "My Nest", "identifier": "my_nest", "description": "Description of my nest" }'
+  ```
+
+### 4. Update Nest
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/nests/:nest`
+- **Method**: PUT
+- **Description**: Update an existing nest.
+- **Required Parameters**:
+  - Same as in `CreateNestRequest`.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nests/:nest"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "Updated Nest", "identifier": "updated_nest", "description": "Updated description" }'
+  ```
+
+### 5. Delete Nest
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/nests/:nest`
+- **Method**: DELETE
+- **Description**: Delete an existing nest.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nests/:nest"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
+
   
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
