@@ -455,6 +455,46 @@ This documentation covers the LocationsService API endpoints, which are used for
   ```
 
 
+# MigratorService API Documentation
+
+## Overview
+This documentation provides details about the MigratorService API endpoints, which are used for managing panel migrations in the application.
+
+## API Endpoints
+
+### 1. Get All Panel Migrations
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/migrator`
+- **Method**: GET
+- **Description**: Retrieve all panel migrations.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/migrator"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Trigger Migration
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/migrator`
+- **Method**: POST
+- **Description**: Trigger a new panel migration.
+- **Required Parameters**:
+  - `panel_url`: URL of the panel to migrate from.
+  - `api_key`: API key for authentication.
+  - Migration options (boolean values): `locations_node_and_game_data`, `nests_and_eggs`, `users`.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/migrator"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "panel_url": "https://old-panel.com", "api_key": "APIKEY", "locations_node_and_game_data": true, "nests_and_eggs": true, "users": true }'
+  ```
+
+### 3. Notify Users About Migration
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/migrator/:id/notify`
+- **Method**: POST
+- **Description**: Notify users about the migration.
+- **Required Parameters**:
+  - `id`: Identifier of the migration.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/migrator/:id/notify"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST
+  ```
+  
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
 - Replace `:apiKey` and `:id` with the specific API key's identifier where applicable.
