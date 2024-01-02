@@ -745,13 +745,37 @@ This documentation outlines the NodeService API endpoints, used for managing nod
 - **Description**: Update an existing node.
 - **Required Parameters**:
   - `name`: Name of the node.
-  - `description`: Description of the node.
-  - `public`: Public status of the node.
-  - Other configuration parameters as needed.
+  - `description`: (Optional) Description of the node.
+  - `public`: Boolean indicating if the node is public.
+  - `display_fqdn`: (Optional) Display fully qualified domain name.
+  - `maintenance_mode`: Boolean indicating if the node is in maintenance mode.
+  - `location_id`: Location identifier for the node.
+  - `cpu`: Total CPU resources for the node.
+  - `cpu_overallocate`: (Optional) Overallocation percentage for CPU.
+  - `memory`: Total memory resources for the node.
+  - `memory_overallocate`: (Optional) Overallocation percentage for memory.
+  - `disk`: Total disk space for the node.
+  - `disk_overallocate`: (Optional) Overallocation percentage for disk.
+  - `upload_size`: Maximum upload size allowed.
+  - `daemonListen`: Port number for the daemon to listen on.
+  - `daemonSFTP`: Port number for SFTP.
+  - `daemonFastdl`: Port number for FastDL.
 - **Example Request**:
   ```bash
-  curl "https://{your.panel.com}/api/admin/nodes/:node"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "Updated Node", "description": "Updated description", "public": true }'
+  curl "https://{your.panel.com}/api/admin/nodes/:node"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{
+          "name": "Updated Node",
+          "description": "New description",
+          "public": true,
+          "display_fqdn": "node.example.com",
+          "maintenance_mode": false,
+          "location_id": 1,
+          "cpu": 100,
+          "memory": 1024,
+          "disk": 2048,
+          ...
+        }'
   ```
+
 
 ### 4. Delete Node
 - **Endpoint**: `DELETE https://{your.panel.com}/api/admin/nodes/:node`
