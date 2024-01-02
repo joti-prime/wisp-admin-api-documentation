@@ -1102,6 +1102,75 @@ This documentation outlines the SettingsService API endpoints, used for managing
   - `asset`: File to be uploaded.
 - **Example Request**: TBD
 
+
+
+# UsersService API Documentation
+
+## Overview
+This documentation outlines the UsersService API endpoints, used for managing users in the application.
+
+## API Endpoints
+
+### 1. Get All Users
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/users`
+- **Method**: GET
+- **Description**: Retrieve all users.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/users"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Get Specific User
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/users/:user`
+- **Method**: GET
+- **Description**: Retrieve a specific user.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/users/:user"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 3. Create User
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/users`
+- **Method**: POST
+- **Description**: Create a new user.
+- **Required Parameters**:
+  - `email`: Email of the user.
+  - `name_first`: First name of the user.
+  - `name_last`: Last name of the user.
+  - `external_id`: External ID of the user.
+  - `password`: Password for the user.
+  - `root_admin`: Boolean indicating if the user is a root admin.
+  - `support_op`: Boolean indicating if the user is a support operator.
+  - `support_op_bypass`: Bypass option for support operation.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/users"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "email": "user@example.com", "name_first": "John", "name_last": "Doe", ... }'
+  ```
+
+### 4. Update User
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/users/:user`
+- **Method**: PUT
+- **Description**: Update an existing user.
+- **Example Request**: TBD
+
+### 5. Disable User's 2FA
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/users/:user/disable-2fa`
+- **Method**: POST
+- **Description**: Disable Two-Factor Authentication for a specific user.
+- **Example Request**: TBD
+
+### 6. Delete User
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/users/:id`
+- **Method**: DELETE
+- **Description**: Delete a specific user.
+- **Required Parameters**:
+  - `id`: Identifier of the user to delete.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/users/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
+
+
   
   
 ## Additional Notes
