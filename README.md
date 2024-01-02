@@ -809,6 +809,58 @@ This documentation outlines the ServerBackupService API endpoints, used for mana
   ```bash
   curl "https://{your.panel.com}/api/admin/servers/:server/backups/:id/toggle"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "id": 123 }'
   ```
+
+
+  # ServerDatabasesService API Documentation
+
+## Overview
+This documentation outlines the ServerDatabasesService API endpoints, used for managing server databases in the application.
+
+## API Endpoints
+
+### 1. Get All Server Databases
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/servers/:server/databases`
+- **Method**: GET
+- **Description**: Retrieve all databases for a specific server.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers/:server/databases"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Create Server Database
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/servers/:server/databases`
+- **Method**: POST
+- **Description**: Create a new database for a server.
+- **Required Parameters**:
+  - `host`: Identifier of the database host.
+  - `name`: Name of the database.
+  - `connections_from`: Allowed connections (IP or CIDR).
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers/:server/databases"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "host": 123, "name": "mydatabase", "connections_from": "192.168.0.1" }'
+  ```
+
+### 3. Rotate Server Database Password
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/servers/:server/databases/:id/rotate-password`
+- **Method**: POST
+- **Description**: Rotate the password for a specific server database.
+- **Required Parameters**:
+  - `id`: Identifier of the database.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers/:server/databases/:id/rotate-password"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST
+  ```
+
+### 4. Delete Server Database
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/servers/:server/databases/:id`
+- **Method**: DELETE
+- **Description**: Delete a specific database from a server.
+- **Required Parameters**:
+  - `id`: Identifier of the database to delete.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers/:server/databases/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
   
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
