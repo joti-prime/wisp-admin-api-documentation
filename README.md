@@ -120,7 +120,7 @@ This documentation details the ApiKeysService API endpoints, which are used for 
   - `[key: ResourceString]`: Resource string for the API key.
   - `memo`: A memo for the API key.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/application-api"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "r_exampleResource": 1, "memo": "My new API key" }'
   ```
 
@@ -138,7 +138,7 @@ This documentation details the ApiKeysService API endpoints, which are used for 
 - **Required Parameters**:
   - `id`: Identifier of the API key to delete.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/application-api/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
   ```
 
@@ -156,7 +156,7 @@ This documentation describes the DatabaseHostsService API endpoints, used for ma
 - **Method**: GET
 - **Description**: Retrieve all database hosts.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/database-hosts"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
   ```
 
@@ -165,7 +165,7 @@ This documentation describes the DatabaseHostsService API endpoints, used for ma
 - **Method**: GET
 - **Description**: Retrieve a specific database host.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/database-hosts/:databaseHost"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
   ```
 
@@ -181,7 +181,7 @@ This documentation describes the DatabaseHostsService API endpoints, used for ma
   - `password`: Password for the database host.
   - `phpmyadmin_url`: URL to phpMyAdmin for the host.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/database-hosts"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "name": "MyDBHost", "host": "db.example.com", "port": 3306, "username": "admin", "password": "password", "phpmyadmin_url": "http://phpmyadmin.example.com" }'
   ```
 
@@ -190,7 +190,7 @@ This documentation describes the DatabaseHostsService API endpoints, used for ma
 - **Method**: PUT
 - **Description**: Update an existing database host.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/database-hosts/:databaseHost"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "UpdatedDBHost", "host": "db-updated.example.com", "port": 3307, "username": "admin_updated", "password": "password_updated", "phpmyadmin_url": "http://phpmyadmin-updated.example.com" }'
   ```
 
@@ -202,7 +202,7 @@ This documentation describes the DatabaseHostsService API endpoints, used for ma
   - `id`: Identifier of the database host to delete.
   - `force`: Boolean indicating whether to force delete.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/database-hosts/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE     -d '{ "force": true }'
   ```
 
@@ -220,7 +220,7 @@ This documentation provides details about the DomainsService API endpoints, whic
 - **Method**: GET
 - **Description**: Retrieve all domains.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/domains"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
   ```
 
@@ -229,7 +229,7 @@ This documentation provides details about the DomainsService API endpoints, whic
 - **Method**: GET
 - **Description**: Retrieve a specific domain.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/domains/:domain"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
   ```
 
@@ -240,7 +240,7 @@ This documentation provides details about the DomainsService API endpoints, whic
 - **Required Parameters**:
   - `name`: Name of the domain.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/domains"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "name": "example.com" }'
   ```
 
@@ -249,7 +249,7 @@ This documentation provides details about the DomainsService API endpoints, whic
 - **Method**: PUT
 - **Description**: Update an existing domain.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/domains/:domain"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "updated-example.com" }'
   ```
 
@@ -260,7 +260,7 @@ This documentation provides details about the DomainsService API endpoints, whic
 - **Required Parameters**:
   - `id`: Identifier of the domain to delete.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/domains/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
   ```
 
@@ -278,7 +278,7 @@ This documentation provides details about the EggVariablesService API endpoints,
 - **Method**: GET
 - **Description**: Retrieve all variables for a specific egg.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
   ```
 
@@ -295,7 +295,7 @@ This documentation provides details about the EggVariablesService API endpoints,
   - `user_editable`: Boolean indicating if the variable is editable by the user.
   - `tickable`: Boolean indicating if the variable is tickable.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "name": "var_name", "description": "Variable description", "env_variable": "VAR_NAME", "default_value": "default", "user_viewable": true, "user_editable": true, "tickable": true }'
   ```
 
@@ -307,7 +307,7 @@ This documentation provides details about the EggVariablesService API endpoints,
   - All parameters as in `CreateVariableRequest`.
   - `id`: Identifier of the variable to update.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "updated_var_name", "description": "Updated description", "env_variable": "UPDATED_VAR", "default_value": "updated_default", "user_viewable": false, "user_editable": false, "tickable": false, "id": 123 }'
   ```
 
@@ -318,7 +318,7 @@ This documentation provides details about the EggVariablesService API endpoints,
 - **Required Parameters**:
   - `id`: Identifier of the variable to delete.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg/variables/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
   ```
 
@@ -335,7 +335,7 @@ This documentation details the EggsService API endpoints, which are used for man
 - **Method**: GET
 - **Description**: Retrieve all eggs for a specific nest.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/nests/:nest/eggs"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
   ```
 
@@ -344,7 +344,7 @@ This documentation details the EggsService API endpoints, which are used for man
 - **Method**: GET
 - **Description**: Retrieve a specific egg.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
   ```
 
@@ -359,7 +359,7 @@ This documentation details the EggsService API endpoints, which are used for man
   - `docker_image`: Docker image for the egg.
   - Other configuration parameters as needed.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/nests/:nest/eggs"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{ "name": "My Egg", "tag": "myegg", "description": "An example egg", "docker_image": "example/image" }'
   ```
 
@@ -369,7 +369,7 @@ This documentation details the EggsService API endpoints, which are used for man
 - **Description**: Import an egg from a file.
 - **Note**: This endpoint requires `multipart/form-data` content type.
 - **Example Request**:
-  ```
+  ```bash
   # Use appropriate tool or library to handle multipart/form-data for file upload.
   ```
 
@@ -380,7 +380,7 @@ This documentation details the EggsService API endpoints, which are used for man
 - **Required Parameters**:
   - Same as in `CreateEggRequest`.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "Updated Egg", "tag": "updatedegg", "description": "Updated description", "docker_image": "updated/image" }'
   ```
 
@@ -389,7 +389,7 @@ This documentation details the EggsService API endpoints, which are used for man
 - **Method**: DELETE
 - **Description**: Delete an existing egg.
 - **Example Request**:
-  ```
+  ```bash
   curl "https://{your.panel.com}/api/admin/nests/:nest/eggs/:egg"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
   ```
 
