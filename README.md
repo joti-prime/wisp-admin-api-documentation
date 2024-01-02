@@ -694,6 +694,73 @@ This documentation provides details about the NodeAllocationsService API endpoin
   curl "https://{your.panel.com}/api/admin/nodes/:node/allocations/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
   ```
 
+
+
+# NodeService API Documentation
+
+## Overview
+This documentation outlines the NodeService API endpoints, used for managing nodes in the application.
+
+## API Endpoints
+
+### 1. Get All Nodes
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/nodes`
+- **Method**: GET
+- **Description**: Retrieve all nodes.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nodes"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Get Specific Node
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/nodes/:node`
+- **Method**: GET
+- **Description**: Retrieve a specific node.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nodes/:node"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 3. Update Node
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/nodes/:node`
+- **Method**: PUT
+- **Description**: Update an existing node.
+- **Required Parameters**:
+  - `name`: Name of the node.
+  - `description`: Description of the node.
+  - `public`: Public status of the node.
+  - Other configuration parameters as needed.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nodes/:node"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "Updated Node", "description": "Updated description", "public": true }'
+  ```
+
+### 4. Delete Node
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/nodes/:node`
+- **Method**: DELETE
+- **Description**: Delete an existing node.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nodes/:node"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
+
+### 5. Get Node Daemon Information
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/nodes/:id/daemon-info`
+- **Method**: GET
+- **Description**: Retrieve daemon information for a specific node.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nodes/:id/daemon-info"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 6. Get Daemon Information for Multiple Nodes
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/nodes/daemon-info`
+- **Method**: GET
+- **Description**: Retrieve daemon information for multiple nodes.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/nodes/daemon-info"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
   
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
