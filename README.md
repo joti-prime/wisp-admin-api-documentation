@@ -861,6 +861,43 @@ This documentation outlines the ServerDatabasesService API endpoints, used for m
   ```bash
   curl "https://{your.panel.com}/api/admin/servers/:server/databases/:id"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
   ```
+
+
+
+
+# ServerStartupService API Documentation
+
+## Overview
+This documentation outlines the ServerStartupService API endpoints, used for managing server startup configurations in the application.
+
+## API Endpoints
+
+### 1. Get Server Startup Configuration
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/servers/:server/startup`
+- **Method**: GET
+- **Description**: Retrieve the startup configuration for a specific server.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers/:server/startup"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Update Server Startup Configuration
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/servers/:server/startup`
+- **Method**: PUT
+- **Description**: Update the startup configuration for a specific server.
+- **Required Parameters**:
+  - `startup`: The startup command.
+  - `egg_id`: Identifier of the egg.
+  - `docker_image`: Docker image to be used.
+  - `skip_scripts`: Boolean to skip execution of scripts.
+  - `environment`: Key-value pairs for environment variables.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers/:server/startup"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "startup": "java -Xms128M -Xmx1024M -jar server.jar", "egg_id": 1, "docker_image": "example/image:tag", "skip_scripts": false, "environment": { "ENV_VAR": "value" } }'
+  ```
+
+
+  
   
 ## Additional Notes
 - Replace `<your.panel.com>` with your actual panel domain.
