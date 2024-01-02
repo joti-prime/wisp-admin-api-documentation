@@ -897,6 +897,143 @@ This documentation outlines the ServerStartupService API endpoints, used for man
   ```
 
 
+
+# ServersService API Documentation
+
+## Overview
+This documentation outlines the ServersService API endpoints, used for managing servers in the application.
+
+## API Endpoints
+
+### 1. Get All Servers
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/servers`
+- **Method**: GET
+- **Description**: Retrieve all servers.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 2. Get Specific Server
+- **Endpoint**: `GET https://{your.panel.com}/api/admin/servers/:server`
+- **Method**: GET
+- **Description**: Retrieve a specific server.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers/:server"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X GET
+  ```
+
+### 3. Create Server
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/servers`
+- **Method**: POST
+- **Description**: Create a new server.
+- **Required Parameters**:
+  - `name`: Name of the server.
+  - `description`: (Optional) Description of the server.
+  - `owner_id`: User ID of the server owner.
+  - `egg_id`: Identifier of the egg.
+  - `docker_image`: (Optional) Docker image to use.
+  - `startup`: (Optional) Startup command.
+  - `environment`: Environment variables.
+  - `skip_scripts`: (Optional) Boolean to skip execution scripts.
+  - `start_on_completion`: (Optional) Boolean to start the server upon creation completion.
+  - `cpu`: CPU limit.
+  - `memory`: Memory limit.
+  - `swap`: Swap limit.
+  - `disk`: Disk space limit.
+  - `io`: IO performance.
+  - `databases_limit`: Limit of databases.
+  - `allocations_limit`: Limit of allocations.
+  - `backup_megabytes_limit`: Backup size limit.
+  - `primary_allocation_id`: Primary allocation ID.
+  - `secondary_allocation_ids`: List of secondary allocation IDs.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X POST     -d '{
+          "name": "My Server",
+          "owner_id": 1,
+          "egg_id": 2,
+          "environment": { "ENV_VAR": "value" },
+          "cpu": 100,
+          "memory": 1024,
+          "disk": 10240,
+          ...
+        }'
+  ```
+
+### 4. Delete Server
+- **Endpoint**: `DELETE https://{your.panel.com}/api/admin/servers/:server`
+- **Method**: DELETE
+- **Description**: Delete a specific server.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers/:server"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X DELETE
+  ```
+
+### 5. Update Server Details
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/servers/:server/details`
+- **Method**: PUT
+- **Description**: Update the details of a specific server.
+- **Required Parameters**:
+  - `name`: New name of the server.
+  - `external_id`: (Optional) External identifier for the server.
+  - `description`: Description of the server.
+  - `owner_id`: User ID of the server owner.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers/:server/details"     -H "Content-Type: application/json"     -H "Authorization: Bearer ADMINAPITOKEN"     -X PUT     -d '{ "name": "Updated Server Name", "external_id": "ext123", "description": "Updated description", "owner_id": 2 }'
+  ```
+
+### 6. Update Server Build Configuration
+- **Endpoint**: `PUT https://{your.panel.com}/api/admin/servers/:server/build`
+- **Method**: PUT
+- **Description**: Update the build configuration of a server.
+- **Example Request**: TBD
+
+### 7. Reinstall Server
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/servers/:server/reinstall`
+- **Method**: POST
+- **Description**: Reinstall the server.
+- **Example Request**: TBD
+
+### 8. Toggle Server Installation Status
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/servers/:server/toggle-install`
+- **Method**: POST
+- **Description**: Toggle the installation status of the server.
+- **Example Request**: TBD
+
+### 9. Rebuild Server
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/servers/:server/rebuild`
+- **Method**: POST
+- **Description**: Rebuild the server.
+- **Example Request**: TBD
+
+### 10. Suspend/Unsuspend Server
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/servers/:server/suspension`
+- **Method**: POST
+- **Description**: Suspend or unsuspend the server.
+- **Example Request**: TBD
+
+### 11. Move Server
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/servers/:server/move`
+- **Method**: POST
+- **Description**: Move the server to a different location or node.
+- **Example Request**: TBD
+
+### 12. Toggle Server Move Status
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/servers/:server/toggle-move`
+- **Method**: POST
+- **Description**: Toggle the move status of the server.
+- **Example Request**: TBD
+
+### 13. Reset Server Mods
+- **Endpoint**: `POST https://{your.panel.com}/api/admin/servers/:server/reset-mods`
+- **Method**: POST
+- **Description**: Reset the mods of the server.
+- **Example Request**: TBD
+
+
+
   
   
 ## Additional Notes
