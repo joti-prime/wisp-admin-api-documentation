@@ -20,6 +20,8 @@
 - export { default as DomainsService } from './domains';
 - export { default as UsersService } from './users';
 
+# Getting API Key
+You can get your API Key in your profile and then Security Controls -> https://{your.panel.com}/account/security Remember to have administrator permisions!
 
 # AnnouncementsService API Documentation
 
