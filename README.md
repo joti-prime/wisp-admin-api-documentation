@@ -1,3 +1,11 @@
+# General Information:
+
+- "Here you can find the Admin API documentation for Wisp.gg."
+- "Remember that there is also a Client API. For more information, visit: https://gamepanel.notion.site/Client-API-ed28e66a240a4c6886232daf141f81c5."
+
+# Getting API Key
+You can get your API Key in your profile and then Security Controls -> https://{your.panel.com}/account/security Remember to have administrator permissions to use Admin API!
+
 # Index:
 
 - export { default as AnnouncementsService } from './announcements';
@@ -20,8 +28,6 @@
 - export { default as DomainsService } from './domains';
 - export { default as UsersService } from './users';
 
-# Getting API Key
-You can get your API Key in your profile and then Security Controls -> https://{your.panel.com}/account/security Remember to have administrator permissions!
 
 # AnnouncementsService API Documentation
 
