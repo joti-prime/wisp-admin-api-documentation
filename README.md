@@ -1040,8 +1040,41 @@ This documentation outlines the ServersService API endpoints, used for managing 
 ### 6. Update Server Build Configuration
 - **Endpoint**: `PUT https://{your.panel.com}/api/admin/servers/:server/build`
 - **Method**: PUT
-- **Description**: Update the build configuration of a server.
-- **Example Request**: TBD
+- **Description**: Update the configuration of an existing server.
+- **URL Parameters**:
+  - `serverId`: The unique identifier of the server to be updated.
+- **Request Body Parameters**:
+  - `name`: (Optional) New name of the server.
+  - `description`: (Optional) New description of the server.
+  - `owner_id`: (Optional) New user ID of the server owner.
+  - `external_id`: (Optional) New external identifier for the server.
+  - `cpu`: (Optional) New CPU limit.
+  - `memory`: (Optional) New memory limit.
+  - `swap`: (Optional) New swap limit.
+  - `disk`: (Optional) New disk space limit.
+  - `io`: (Optional) New IO performance.
+  - `databases_limit`: (Optional) New limit of databases.
+  - `allocations_limit`: (Optional) New limit of allocations.
+  - `backup_megabytes_limit`: (Optional) New backup size limit.
+  - `allocation_id`: (Optional) New primary allocation ID.
+  - `add_allocation_ids`: (Optional) List of allocation IDs to add.
+  - `remove_allocation_ids`: (Optional) List of allocation IDs to remove.
+- **Example Request**:
+  ```bash
+  curl "https://{your.panel.com}/api/admin/servers/{serverId}" \
+       -H "Content-Type: application/json" \
+       -H "Authorization: Bearer ADMINAPITOKEN" \
+       -X PUT \
+       -d '{
+             "name": "Updated Server Name",
+             "description": "Updated Description",
+             "owner_id": 2,
+             "cpu": 200,
+             "memory": 2048,
+             "disk": 20480,
+             ...
+           }'
+
 
 ### 7. Reinstall Server
 - **Endpoint**: `POST https://{your.panel.com}/api/admin/servers/:server/reinstall`
