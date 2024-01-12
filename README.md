@@ -1040,40 +1040,41 @@ This documentation outlines the ServersService API endpoints, used for managing 
 ### 6. Update Server Build Configuration
 - **Endpoint**: `PUT https://{your.panel.com}/api/admin/servers/:server/build`
 - **Method**: PUT
-- **Description**: Update the configuration of an existing server.
+- **Description**: Update the build configuration of an existing server.
 - **URL Parameters**:
-  - `serverId`: The unique identifier of the server to be updated.
-- **Request Body Parameters**:
-  - `name`: (Optional) New name of the server.
-  - `description`: (Optional) New description of the server.
-  - `owner_id`: (Optional) New user ID of the server owner.
-  - `external_id`: (Optional) New external identifier for the server.
-  - `cpu`: (Optional) New CPU limit.
-  - `memory`: (Optional) New memory limit.
-  - `swap`: (Optional) New swap limit.
-  - `disk`: (Optional) New disk space limit.
-  - `io`: (Optional) New IO performance.
-  - `databases_limit`: (Optional) New limit of databases.
-  - `allocations_limit`: (Optional) New limit of allocations.
-  - `backup_megabytes_limit`: (Optional) New backup size limit.
-  - `allocation_id`: (Optional) New primary allocation ID.
-  - `add_allocation_ids`: (Optional) List of allocation IDs to add.
+  - `serverId`: The unique identifier of the server whose build configuration is to be updated.
+- **Request Body Parameters** (`UpdateBuildRequest`):
+  - `cpu`: New CPU limit.
+  - `memory`: New memory limit.
+  - `swap`: New swap limit.
+  - `disk`: New disk space limit.
+  - `io`: New IO performance.
+  - `databases_limit`: New limit of databases.
+  - `allocations_limit`: New limit of allocations.
+  - `backup_megabytes_limit`: New backup size limit.
+  - `allocation_id`: New primary allocation ID.
+  - `add_allocation_ids`: (Optional) List of additional allocation IDs to add.
   - `remove_allocation_ids`: (Optional) List of allocation IDs to remove.
 - **Example Request**:
   ```bash
-  curl "https://{your.panel.com}/api/admin/servers/{serverId}" \
+  curl "https://{your.panel.com}/api/admin/servers/{serverId}/build" \
        -H "Content-Type: application/json" \
        -H "Authorization: Bearer ADMINAPITOKEN" \
        -X PUT \
        -d '{
-             "name": "Updated Server Name",
-             "description": "Updated Description",
-             "owner_id": 2,
              "cpu": 200,
              "memory": 2048,
+             "swap": 0,
              "disk": 20480,
-             ...
+             "io": 500,
+             "databases_limit": 3,
+             "allocations_limit": 2,
+             "backup_megabytes_limit": 10000,
+             "allocation_id": 12345,
+             "add_allocation_ids": [23456, 34567],
+             "remove_allocation_ids": [45678]
            }'
+
 
 
 ### 7. Reinstall Server
